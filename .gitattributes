@@ -17,3 +17,9 @@
 # Use `binary` to make sure certain files are never auto-detected as text.
 #
 #*.png binary
+
+########################################################################
+# Documentation
+########################################################################
+
+README  linguist-language=Markdown
