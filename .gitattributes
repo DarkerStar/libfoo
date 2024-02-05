@@ -1,19 +1,28 @@
-# This is a good default: files that are auto-detected by git to be text are
-# converted to the platform-native line ending (LF on Unix, CRLF on Windows)
-# in the working tree and to LF in the repository.
-#
+########################################################################
+#                                                                      #
+# This file is part of libfoo.                                         #
+#                                                                      #
+# libfoo is free software: you can redistribute it and/or modify it    #
+# under the terms of the GNU General Public License as published by    #
+# the Free Software Foundation, either version 3 of the License, or    #
+# (at your option) any later version.                                  #
+#                                                                      #
+# libfoo is distributed in the hope that it will be useful, but        #
+# WITHOUT ANY WARRANTY; without even the implied warranty of           #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the         #
+# GNU General Public License for more details.                         #
+#                                                                      #
+# You should have received a copy of the GNU General Public License    #
+# along with libfoo.                                                   #
+# If not, see <https://www.gnu.org/licenses/>.                         #
+#                                                                      #
+########################################################################
+
 * text=auto
 
-# Use `eol=crlf` for files that should have the CRLF line ending both in the
-# working tree (even on Unix) and in the repository.
-#
-#*.bat text eol=crlf
+########################################################################
+# Documentation
+########################################################################
 
-# Use `eol=lf` for files that should have the LF line ending both in the
-# working tree (even on Windows) and in the repository.
-#
-#*.sh text eol=lf
-
-# Use `binary` to make sure certain files are never auto-detected as text.
-#
-#*.png binary
+README  linguist-language=Markdown
+LICENSE linguist-language=Markdown
