@@ -1,0 +1,13 @@
+: 1
+name: libfoo
+version: 0.1.0-a.0.z
+language: c++
+summary: foo C++ library
+license: other: proprietary ; Not free/open source.
+description-file: README.md
+url: https://example.org/libfoo
+email: indi@genesismachina.ca
+#build-error-email: indi@genesismachina.ca
+depends: * build2 >= 0.16.0
+depends: * bpkg >= 0.16.0
+#depends: libhello ^1.0.0

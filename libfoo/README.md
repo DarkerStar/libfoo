@@ -1,0 +1,3 @@
+# libfoo
+
+C++ library
