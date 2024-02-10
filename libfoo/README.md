@@ -1,3 +1,0 @@
-# libfoo
-
-C++ library

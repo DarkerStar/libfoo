@@ -24,7 +24,8 @@ version: 0.1.0-a.0.z
 language: c++
 summary: foo C++ library
 license: GPL-3.0-or-later ; GNU General Public License v3.0 or later
-description-file: README.md
+description-file: README
+description-type: text/markdown
 url: https://example.org/libfoo
 email: indi@genesismachina.ca
 #build-error-email: indi@genesismachina.ca
