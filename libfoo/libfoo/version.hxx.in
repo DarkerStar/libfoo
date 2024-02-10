@@ -1,0 +1,54 @@
+/***********************************************************************
+ *                                                                     *
+ * This file is part of libfoo.                                        *
+ *                                                                     *
+ * libfoo is free software: you can redistribute it and/or modify it   *
+ * under the terms of the GNU General Public License as published by   *
+ * the Free Software Foundation, either version 3 of the License, or   *
+ * (at your option) any later version.                                 *
+ *                                                                     *
+ * libfoo is distributed in the hope that it will be useful, but       *
+ * WITHOUT ANY WARRANTY; without even the implied warranty of          *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the        *
+ * GNU General Public License for more details.                        *
+ *                                                                     *
+ * You should have received a copy of the GNU General Public License   *
+ * along with libfoo.                                                  *
+ * If not, see <https://www.gnu.org/licenses/>.                        *
+ *                                                                     *
+ **********************************************************************/
+
+#pragma once
+
+// The numeric version format is AAAAABBBBBCCCCCDDDE where:
+//
+// AAAAA - major version number
+// BBBBB - minor version number
+// CCCCC - bugfix version number
+// DDD   - alpha / beta (DDD + 500) version number
+// E     - final (0) / snapshot (1)
+//
+// When DDDE is not 0, 1 is subtracted from AAAAABBBBBCCCCC. For example:
+//
+// Version      AAAAABBBBBCCCCCDDDE
+//
+// 0.1.0        0000000001000000000
+// 0.1.2        0000000001000020000
+// 1.2.3        0000100002000030000
+// 2.2.0-a.1    0000200001999990010
+// 3.0.0-b.2    0000299999999995020
+// 2.2.0-a.1.z  0000200001999990011
+//
+#define LIBFOO_VERSION       $libfoo.version.project_number$ULL
+#define LIBFOO_VERSION_STR   "$libfoo.version.project$"
+#define LIBFOO_VERSION_ID    "$libfoo.version.project_id$"
+#define LIBFOO_VERSION_FULL  "$libfoo.version$"
+
+#define LIBFOO_VERSION_MAJOR $libfoo.version.major$
+#define LIBFOO_VERSION_MINOR $libfoo.version.minor$
+#define LIBFOO_VERSION_PATCH $libfoo.version.patch$
+
+#define LIBFOO_PRE_RELEASE   $libfoo.version.pre_release$
+
+#define LIBFOO_SNAPSHOT_SN   $libfoo.version.snapshot_sn$ULL
+#define LIBFOO_SNAPSHOT_ID   "$libfoo.version.snapshot_id$"

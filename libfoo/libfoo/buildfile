@@ -1,0 +1,63 @@
+########################################################################
+#                                                                      #
+# This file is part of libfoo.                                         #
+#                                                                      #
+# libfoo is free software: you can redistribute it and/or modify it    #
+# under the terms of the GNU General Public License as published by    #
+# the Free Software Foundation, either version 3 of the License, or    #
+# (at your option) any later version.                                  #
+#                                                                      #
+# libfoo is distributed in the hope that it will be useful, but        #
+# WITHOUT ANY WARRANTY; without even the implied warranty of           #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the         #
+# GNU General Public License for more details.                         #
+#                                                                      #
+# You should have received a copy of the GNU General Public License    #
+# along with libfoo.                                                   #
+# If not, see <https://www.gnu.org/licenses/>.                         #
+#                                                                      #
+########################################################################
+
+intf_libs = # Interface dependencies.
+impl_libs = # Implementation dependencies.
+#import xxxx_libs += libhello%lib{hello}
+
+lib{foo}: {hxx ixx txx cxx}{** -version} hxx{version} $impl_libs $intf_libs
+
+hxx{version}: in{version} $src_root/manifest
+
+# Build options.
+#
+cxx.poptions =+ "-I$out_root" "-I$src_root"
+
+{hbmia obja}{*}: cxx.poptions += -DLIBFOO_STATIC_BUILD
+{hbmis objs}{*}: cxx.poptions += -DLIBFOO_SHARED_BUILD
+
+# Export options.
+#
+lib{foo}:
+{
+  cxx.export.poptions = "-I$out_root" "-I$src_root"
+  cxx.export.libs = $intf_libs
+}
+
+liba{foo}: cxx.export.poptions += -DLIBFOO_STATIC
+libs{foo}: cxx.export.poptions += -DLIBFOO_SHARED
+
+# For pre-releases use the complete version to make sure they cannot
+# be used in place of another pre-release or the final version. See
+# the version module for details on the version.* variable values.
+#
+if $version.pre_release
+  lib{foo}: bin.lib.version = "-$version.project_id"
+else
+  lib{foo}: bin.lib.version = "-$version.major.$version.minor"
+
+# Install into the libfoo/ subdirectory of, say, /usr/include/
+# recreating subdirectories.
+#
+{hxx ixx txx}{*}:
+{
+  install         = include/libfoo/
+  install.subdirs = true
+}
