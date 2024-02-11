@@ -20,12 +20,16 @@
 
 cxx.std = latest
 
+cxx.features.modules = true
+cxx.features.symexport = true
+
 using cxx
 
 hxx{*}: extension = hxx
-ixx{*}: extension = ixx
-txx{*}: extension = txx
 cxx{*}: extension = cxx
+mxx{*}: extension = mxx
+
+hxx{*}: cxx.importable = true
 
 # Every exe{} in this subproject is by default a test.
 #
